@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_055207) do
+ActiveRecord::Schema.define(version: 2021_04_21_055117) do
+
+  create_table "balances", force: :cascade do |t|
+    t.integer "property"
+    t.integer "account"
+    t.integer "credit_card"
+    t.integer "digital_cash"
+    t.integer "certificate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "year"
+    t.integer "month"
+    t.integer "user_id"
+    t.string "account_info"
+    t.string "credit_card_info"
+    t.string "digital_cash_info"
+    t.string "certificate_info"
+  end
 
   create_table "books", force: :cascade do |t|
     t.integer "inout"
@@ -18,6 +35,15 @@ ActiveRecord::Schema.define(version: 2021_04_11_055207) do
     t.integer "year"
     t.integer "month"
     t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

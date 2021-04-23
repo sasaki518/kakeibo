@@ -1,0 +1,42 @@
+<h1>口座残高<%= type %></h1>
+
+<%= form_with model: balance, local: true, method: method do |f| %>
+
+    <div class="form-group">
+        <label>年度</label>
+        <%=f.number_field :year, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+        <label>月</label>
+        <%= f.number_field :month, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <label>全資産</label>
+        <%= f.number_field :property, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+        <label>銀行口座</label>
+        <%= f.number_field :account, class: "form-control" %><%= f.select :account_info, [["A銀行", 1], ["B銀行", 2], ["C銀行", 3]], {}, {class: "form-control"} %>
+    </div>
+    
+    <div class="form-group">
+        <label>クレジットカード</label>
+        <%= f.number_field :credit_card, class: "form-control" %><%= f.select :credit_card_info, [["Aカード", 1], ["Bカード", 2], ["Cカード", 3]], {}, {class: "form-control"} %>
+    </div>
+    
+    <div class="form-group">
+        <label>電子マネー</label>
+        <%= f.number_field :digital_cash, class: "form-control" %><%= f.select :digital_cash_info, [["A社", 1], ["B社", 2], ["C社", 3]], {}, {class: "form-control"} %>
+    </div>
+    
+    <div class="form-group">
+        <label>証券</label>
+        <%= f.number_field :certificate, class: "form-control" %><%= f.select :certificate_info, [["A社", 1], ["B社", 2], ["C社", 3]], {}, {class: "form-control"} %>
+    </div>
+    <%= link_to "戻る", balances_path,class: "btn btn-secondary" %>
+    <%= f.submit type, class: "btn btn-primary" %>
+    
+    <% end %>

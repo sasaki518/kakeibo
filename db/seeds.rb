@@ -3,3 +3,5 @@
  Book.create(inout: 2, category: "食費", year: 2020, month: 7, amount: 6)
  Book.create(inout: 2, category: "光熱費・水道", year: 2020, month: 7, amount: 3)
  Book.create(inout: 2, category: "保険", year: 2020, month: 7, amount: 2)
+
+Balance.create(property: 100, account: 80, credit_card: 1, digital_cash: 1, certificate: 5, year: 2021, month: 5)

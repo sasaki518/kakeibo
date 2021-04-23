@@ -10,10 +10,22 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-light">
+      <a href="/" class="navbar-brand">家計簿アプリ</a>
+      <div>
+        <% if session[:user_id].present? %>
+        <%= link_to "口座残高", balances_path, class: "btn btn-success" %>
+        <%= link_to "登録内容の更新", edit_user_path, class: "btn btn-outline-info" %>
+        <%= link_to "ログアウト", signout_path, class: "btn btn-outline-secondary" %>
+        <% else %>
+        <%= link_to "会員登録", signup_path, class: "btn btn-outline-primary" %>
+        <% end %>
+      </div>
+    </nav>
     <div class="container">
     <% if flash[:notice] %>
     <div class="alert alert-success" role="alert">
-      <%= "家計簿に" %><%= @book.year %>年<%= @book.month %>月<%= @book.category %><%= flash[:notice] %>
+      <%= flash[:notice] %>
     </div>
 <% end %>
   <% if flash[:alert] %>

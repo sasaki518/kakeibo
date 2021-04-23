@@ -1,0 +1,46 @@
+<h1>口座残高</h1>
+
+<div class="card">
+    <div class="card-body">
+        <%= form_with method: "get", local: true do |f| %>
+        <div class="form-row">
+            <div class="col">
+                <%= f.number_field "year", placeholder: "年度を入力", class: "form-control" %>
+            </div>
+            <div class="col">
+                <%= f.number_field "month", placeholder: "対象月を入力", class: "form-control" %>
+            </div>
+            <div class="col">
+                <%= f.submit "検索", class: "btn btn-primary" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<%= link_to "新規登録", new_balance_path, class: "btn btn-primary" %>
+<table class="table table-warning table-striped">
+    <tr>
+        <th>年月</th>
+        <th>全資産</th>
+        <th>銀行口座</th>
+        <th>クレジットカード</th>
+        <th>電子マネー</th>
+        <th>証券</th>
+    </tr>
+    
+    <tr>
+    <% @balances.each do |balance| %>
+        <td><%= balance.year %>年<%= balance.month %>月</td>
+        <td><%= balance.property %>万円</td>
+        <td><%= balance.account %>万円</td>
+        <td><%= balance.credit_card %>万円</td>
+        <td><%= balance.digital_cash %>万円</td>
+        <td><%= balance.certificate %>万円</td>
+        <td>
+            <%= link_to "詳細", balance_path(balance), class: "btn btn-info" %>
+            <%= link_to "編集", edit_balance_path(balance), class: "btn btn-warning" %>
+            <%= link_to "削除", balance_path(balance), method: "delete",data: { confirm: "本当に削除しますか?" }, class: "btn btn-danger" %>
+        </td>
+    </tr>
+    <% end %>
+</table>

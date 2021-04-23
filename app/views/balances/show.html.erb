@@ -1,0 +1,75 @@
+<h1>口座詳細</h1>
+
+<table class="table">
+    <tr>
+        <th>年月</th>
+        <td><%= @balance.year %>年<%= @balance.month %>月</td>
+    </tr>
+    
+    <tr>
+        <th>全資産</th>
+        <td><%= @balance.property %></td>
+    </tr>
+    
+    <tr>
+        <th>銀行口座</th>
+        <td><%= @balance.account %></td>
+        <td>
+            <% if @balance.account_info == 1 %>
+            <%= "A銀行" %>
+            <% elsif %>
+            <% @balance.account_info == 2 %>
+            <%= "B銀行" %>
+            <% else %>
+            <%= "C銀行" %>
+            <% end %>
+        </td>
+    </tr>
+    
+    <tr>
+        <th>クレジットカード</th>
+        <td><%= @balance.credit_card %></td>
+        <td>
+            <% if @balance.credit_card_info == 1 %>
+            <%= "Aカード" %>
+            <% elsif %>
+            <% @balance.credit_card_info == 2 %>
+            <%= "Bカード" %>
+            <% else %>
+            <%= "Cカード" %>
+            <% end %>
+        </td>
+    </tr>
+    
+    <tr>
+        <th>電子マネー</th>
+        <td><%= @balance.digital_cash %></td>
+        <td>
+            <% if @balance.digital_cash_info == 1 %>
+            <%= "A社" %>
+            <% elsif %>
+            <% @balance.digital_cash_info == 2 %>
+            <%= "B社" %>
+            <% else %>
+            <%= "C社" %>
+            <% end %>
+        </td>
+    </tr>
+    
+    <tr>
+        <th>証券</th>
+        <td><%= @balance.certificate %></td>
+        <td>
+            <% if @balance.certificate_info == 1 %>
+            <%= "A社" %>
+            <% elsif %>
+            <% @balance.certificate_info == 2 %>
+            <%= "B社" %>
+            <% else %>
+            <%= "C社" %>
+            <% end %>
+        </td>
+    </tr>
+</table>
+
+<%= link_to "戻る", balances_path, class: "btn btn-secondary" %>
